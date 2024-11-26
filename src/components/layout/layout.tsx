@@ -2,6 +2,8 @@ import { FC } from "react";
 import { Header } from "../header";
 import { Box, Container } from "@mui/material";
 import { Footer } from "../footer";
+import { Aside } from "../aside";
+import { Outlet } from "react-router";
 
 export const Layout: FC = () => {
   return (
@@ -12,6 +14,8 @@ export const Layout: FC = () => {
           maxWidth="lg"
           sx={{ bgcolor: "var(--white)", height: "100%" }}
         >
+          <Aside />
+          <Outlet />
           Привет
         </Container>
       </Box>
