@@ -7,13 +7,15 @@ import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 import "./index.css";
 import { BrowserRouter, Route, Routes } from "react-router";
+import { InfoBlock } from "./components/info-block/info.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />}>
-          <Route path="/:category" element={<div>Кадры</div>} />
+          <Route index element={<InfoBlock />} />
+          <Route path="/:category" element={<InfoBlock />} />
         </Route>
       </Routes>
     </BrowserRouter>

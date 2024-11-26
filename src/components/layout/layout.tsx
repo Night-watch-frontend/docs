@@ -12,11 +12,10 @@ export const Layout: FC = () => {
       <Box component={"main"} flexGrow={1}>
         <Container
           maxWidth="lg"
-          sx={{ bgcolor: "var(--white)", height: "100%" }}
+          sx={{ bgcolor: "var(--white)", height: "100%", display: "flex" }}
         >
           <Aside />
           <Outlet />
-          Привет
         </Container>
       </Box>
       <Footer />
