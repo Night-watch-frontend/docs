@@ -8,6 +8,7 @@ import "@fontsource/roboto/700.css";
 import "./index.css";
 import { BrowserRouter, Route, Routes } from "react-router";
 import { InfoBlock } from "./components/info-block/info.tsx";
+import { FileDoc } from "./components/file/file.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -16,6 +17,7 @@ createRoot(document.getElementById("root")!).render(
         <Route path="/" element={<App />}>
           <Route index element={<InfoBlock />} />
           <Route path="/:category" element={<InfoBlock />} />
+          <Route path="/:category/:title" element={<FileDoc />} />
         </Route>
       </Routes>
     </BrowserRouter>

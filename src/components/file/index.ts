@@ -1,0 +1,1 @@
+export { FileDoc } from "./file";

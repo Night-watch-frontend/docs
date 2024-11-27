@@ -7,7 +7,7 @@ import { store } from "../../store";
 
 export const InfoBlock: FC = observer(() => {
   const pathName = useLocation().pathname;
-  const params = useParams();
+  const { category } = useParams();
   useEffect(() => {
     if (pathName === "/") {
       store.fetchAllFiles();
@@ -15,10 +15,10 @@ export const InfoBlock: FC = observer(() => {
   }, [pathName]);
 
   useEffect(() => {
-    if (params.category) {
-      store.fetchFileForCategory(params.category);
+    if (category) {
+      store.fetchFileForCategory(category);
     }
-  }, [params]);
+  }, [category]);
 
   const listDocs = store.state.documents;
 
@@ -30,13 +30,10 @@ export const InfoBlock: FC = observer(() => {
         marginBottom={2}
         sx={{ fontWeight: "bold", color: "var(--black)" }}
       >
-        {params.category ? params.category : "Все документы"}
+        {category ? category : "Все документы"}
       </Typography>
       {listDocs.length !== 0 ? (
-        <TableDocs
-          rows={listDocs}
-          href={params.category ? params.category : ""}
-        />
+        <TableDocs rows={listDocs} href={category ? category : ""} />
       ) : (
         <Typography variant="h6" sx={{ color: "var(--black)" }}>
           Документы не найдены

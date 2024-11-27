@@ -52,7 +52,7 @@ export const store = makeAutoObservable({
     }
   },
 
-  async fetchАшду(path: string) {
+  async fetchFile(path: string) {
     try {
       this.state.path = "";
       const res = await services.getFile(path);
