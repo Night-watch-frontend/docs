@@ -3,6 +3,7 @@ import { FC, useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { store } from "../../store";
 import { observer } from "mobx-react-lite";
+import { Move } from "../move";
 
 export const FileDoc: FC = observer(() => {
   const { category, title } = useParams();
@@ -42,6 +43,7 @@ export const FileDoc: FC = observer(() => {
         height={650}
         style={loading ? { display: "none" } : { display: "block" }}
       />
+      <Move />
     </Box>
   );
 });
