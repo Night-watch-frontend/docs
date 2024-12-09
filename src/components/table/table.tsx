@@ -8,8 +8,9 @@ import {
   TableRow,
 } from "@mui/material";
 import { FC } from "react";
-import { Link } from "react-router";
+import { NavLink } from "react-router";
 import { DataFile } from "../../services";
+import styles from "./table.module.css";
 
 interface ITableDocsProps {
   rows: DataFile[];
@@ -33,7 +34,8 @@ export const TableDocs: FC<ITableDocsProps> = ({ rows, href }) => {
               <TableRow key={row.name}>
                 <TableCell>{index + 1}</TableCell>
                 <TableCell>
-                  <Link
+                  <NavLink
+                    className={styles.link}
                     to={`/${
                       row.path
                         ? row.path.split("/").slice(2).join("/")
@@ -41,7 +43,7 @@ export const TableDocs: FC<ITableDocsProps> = ({ rows, href }) => {
                     }`}
                   >
                     {row.name}
-                  </Link>
+                  </NavLink>
                 </TableCell>
                 <TableCell>
                   <img
@@ -49,6 +51,7 @@ export const TableDocs: FC<ITableDocsProps> = ({ rows, href }) => {
                     width={30}
                     height={40}
                     alt={row.name}
+                    onLoad={() => console.log("load")}
                   ></img>
                 </TableCell>
               </TableRow>

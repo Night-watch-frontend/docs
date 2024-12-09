@@ -38,7 +38,7 @@ export const services = {
   },
 
   async deleteFile(path: string) {
-    const response = await $api.delete(`?path=CaseLabDocuments/${path}`);
+    const response = await $api.delete(`?path=CaseLabDocuments${path}`);
     return response.status;
   },
 };
